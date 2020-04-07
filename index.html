@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do-list</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <h1><span>Todo</span>List</h1>
+        <div class="nav-links">
+            <a href="" id="signUp">Sign Up</a>
+            <a href="" id="logIn">Log In</a>
+        </div>
+    </nav>
+
+    <div class="todo-list">
+
+
+
+
+        <div class="dashboard">
+
+        </div>
+
+
+
+
+
+
+
+        <!--iF SIGN UP IS CLICKED-->
+        <form class="signUp" id="form">
+            <h3>Sign up for free</h3>
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <input type="text" id="lastName" placeholder="Last Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <div><input type="checkbox" id="agree"> I agree to the Terms of Use.</div>
+            <button type="submit" id="sendData">Send</button>
+        </form>
+
+        <!--SIGN UP rejected message-->
+        <div class="rejected">
+            <h3>All fields are required</h3>
+        </div>
+
+
+        <!--iF LOG IN IS CLICKED-->
+        <form class="logIn" id="form2">
+            <h3>Log in</h3>
+            <div>
+                <input type="email" id="email2" placeholder="Email" required>
+                <input type="password" id="password2" placeholder="Password" required>
+                <button type="submit" id="verifyData">Send</button>
+            </div>
+        </form>
+
+
+        <!--Log IN rejected message-->
+
+        <div class="rejected2">
+            <h3>Password or email is incorrect</h3>
+        </div>
+
+    </div>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
