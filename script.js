@@ -1,9 +1,11 @@
-
 const signUp = document.getElementById('signUp');
 const logIn = document.getElementById('logIn');
 const sendData = document.getElementById('sendData');
 const login = document.getElementById('login');
-
+const newTodo = document.getElementById('newTodo');
+const textarea = document.getElementById('textarea');
+const saveTodo = document.getElementById('saveTodo');
+const dashboard = document.getElementById('dashboard');
 const users = [];
 
 function opendForm(e) {
@@ -30,29 +32,27 @@ const ckeckData = (e) => {
     const form = document.getElementById('form2');
     const email = document.getElementById('email2').value;
     const password = document.getElementById('password2').value;
+    const newTodo = document.getElementById('newTodo');
     const db = [];
 
-    if(email && password){
+    if (email && password) {
+        for (let i = 0; i < localStorage.length; i++) {
+            let storage = JSON.parse(localStorage.getItem(`${localStorage.key(i)}`))
+            db.push(storage);
 
-
-    for (let i = 0; i < localStorage.length; i++) {
-        let storage = JSON.parse(localStorage.getItem(`${localStorage.key(i)}`))
-        db.push(storage);
-
-        if (db[i].email === email &&
-            db[i].password === password
-        ) {
-            completed(form);
-            todoApp();
-            break;
-        } else {
-            rejected('rejected2');
+            if (db[i].email === email &&
+                db[i].password === password
+            ) {
+                completed(form);
+                todoApp();
+                break;
+            } else {
+                rejected('rejected2');
+            }
         }
+    } else {
+        rejected('rejected2');
     }
-}
-else{
-    rejected('rejected2');
-}
 
 }
 
@@ -99,15 +99,39 @@ function rejected(str) {
 }
 
 function todoApp() {
+    const logIn = document.querySelector('.logIn');
+    logIn.style.display = 'none';
+    dashboard.style.display = 'flex';
     console.log('You\'re login')
 }
 
+function displayTextarea() {
+    textarea.style.display = 'block';
+    saveTodo.style.display = 'block';
+    newTodo.style.display = 'none';
+}
 
+function saveList() {
+    textarea.style.display = 'none';
+    newTodo.style.display = 'block';
+    saveTodo.style.display = 'none';
+    appendTodo();
+}
 
+function appendTodo() {
+    let list = document.getElementById('list');
+    let todo = textarea.value;
+    let div = document.createElement('div');
+    div.classList.add('item');
+    div.innerHTML = ` <p> ${ todo } </p>`;
+    list.appendChild(div)
 
+}
 
 
 logIn.addEventListener('click', opendForm)
 signUp.addEventListener('click', opendForm);
 sendData.addEventListener('click', saveData);
 login.addEventListener('click', ckeckData);
+newTodo.addEventListener('click', displayTextarea);
+saveTodo.addEventListener('click', saveList);

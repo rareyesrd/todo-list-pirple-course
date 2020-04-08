@@ -67,11 +67,46 @@ nav .nav-links a:hover {
 }
 
 .todo-list {
+    width: 80%;
+    margin: 0 auto;
     height: 92vh;
     display: grid;
     place-items: center;
 }
-
+.dashboard{
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.dashboard .createTodo textarea{
+    width: 100%;
+    display: none;
+    outline-width: 5px;
+    outline-color: #21d397;
+    margin-bottom: 20px;
+}
+.dashboard .createTodo .btn{
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    /* line-height: 33px; */
+    padding: 5px 20px;
+    min-width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    letter-spacing: 1px;
+    transition: all .5s ease;
+    background-color: #7450fe;
+}
+.dashboard .createTodo .btn:hover{
+    background-color: #21d397;
+}
+#saveTodo{
+    display: none;
+}
 .signUp {
     height: 500px;
     width: 80%;
