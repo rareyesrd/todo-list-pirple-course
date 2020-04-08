@@ -1,7 +1,8 @@
+
 const signUp = document.getElementById('signUp');
 const logIn = document.getElementById('logIn');
 const sendData = document.getElementById('sendData');
-const verifyData = document.getElementById('verifyData');
+const login = document.getElementById('login');
 
 const users = [];
 
@@ -29,15 +30,30 @@ const ckeckData = (e) => {
     const form = document.getElementById('form2');
     const email = document.getElementById('email2').value;
     const password = document.getElementById('password2').value;
+    const db = [];
 
-    if (localStorage.getItem('email') === email &&
-        localStorage.getItem('password') === password
-    ) {
-        completed(form);
-        todoApp();
-    }else{
-        rejected('rejected2');
+    if(email && password){
+
+
+    for (let i = 0; i < localStorage.length; i++) {
+        let storage = JSON.parse(localStorage.getItem(`${localStorage.key(i)}`))
+        db.push(storage);
+
+        if (db[i].email === email &&
+            db[i].password === password
+        ) {
+            completed(form);
+            todoApp();
+            break;
+        } else {
+            rejected('rejected2');
+        }
     }
+}
+else{
+    rejected('rejected2');
+}
+
 }
 
 function formVerification() {
@@ -50,7 +66,7 @@ function formVerification() {
     if (firstName && lastName && email && password && agree.checked) {
         registerUser();
         for (let i = 0; i < users.length; i++) {
-            localStorage.setItem(`${firstName}`, users[i])
+            localStorage.setItem(`User: ${firstName}`, users[i])
         }
         completed(form);
     } else {
@@ -58,8 +74,8 @@ function formVerification() {
     }
 }
 
-function registerUser(){
-    let obj ={
+function registerUser() {
+    let obj = {
         firstName: firstName.value,
         lastName: lastName.value,
         email: email.value,
@@ -82,8 +98,8 @@ function rejected(str) {
     }, 2000)
 }
 
-function todoApp(){
-
+function todoApp() {
+    console.log('You\'re login')
 }
 
 
@@ -94,4 +110,4 @@ function todoApp(){
 logIn.addEventListener('click', opendForm)
 signUp.addEventListener('click', opendForm);
 sendData.addEventListener('click', saveData);
-verifyData.addEventListener('click', ckeckData);
+login.addEventListener('click', ckeckData);
