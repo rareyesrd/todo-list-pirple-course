@@ -12,26 +12,27 @@
     <nav>
         <h1><span>Todo</span>List</h1>
         <div class="nav-links">
-            <a href="" id="signUp">Sign Up</a>
-            <a href="" id="logIn">Log In</a>
+            <a href="#" id="signUp">Sign Up</a>
+            <a href="#" id="logIn">Log In</a>
+            <a href="\" id="logOut" class="d-none">Log out</a>
         </div>
     </nav>
 
     <div class="todo-list">
 
-
-
+        <!--Dashboard-->
 
         <div id="dashboard" class="dashboard">
+            <div id="welcome"></div>
             <div class="createTodo">
-                <textarea id="textarea" cols="30" rows="10" placeholder="Type here"></textarea>
                 <button class="btn" id="newTodo">Create New to-do List </button>
                 <button class="btn" id="saveTodo">Save</button>
+                <input type="text" id="titleList">
             </div>
 
 
             <div class="list" id="list">
-
+                
             </div>
         </div>
 
@@ -48,7 +49,7 @@
 
         <!--SIGN UP rejected message-->
         <div class="rejected">
-            <h3>All fields are required</h3>
+            <h3>All fields are required and make sure to enter a correct email.</h3>
         </div>
 
 

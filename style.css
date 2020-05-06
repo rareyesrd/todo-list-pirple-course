@@ -14,13 +14,17 @@ ul {
     list-style: none;
 }
 
+.d-none {
+    display: none !important;
+}
+
 .d-block {
     display: block !important;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
 
 }
 
@@ -73,20 +77,22 @@ nav .nav-links a:hover {
     display: grid;
     place-items: center;
 }
-.dashboard{
+
+.dashboard {
     width: 100%;
     display: none;
-    flex-direction: column;
-    justify-content: space-around;
+    
 }
-.dashboard .createTodo textarea{
-    width: 100%;
-    display: none;
-    outline-width: 5px;
-    outline-color: #21d397;
+.dashboard #welcome{
     margin-bottom: 20px;
+    margin-top: 20px;
 }
-.dashboard .createTodo .btn{
+.dashboard .createTodo {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.dashboard .createTodo .btn {
     color: #fff;
     font-size: 12px;
     font-weight: 600;
@@ -100,13 +106,78 @@ nav .nav-links a:hover {
     letter-spacing: 1px;
     transition: all .5s ease;
     background-color: #7450fe;
+    margin-right: 20px;
 }
-.dashboard .createTodo .btn:hover{
+
+.dashboard .createTodo .btn:hover {
     background-color: #21d397;
 }
-#saveTodo{
+.dashboard .createTodo input{
+    display: none;
+    border: none;
+    border-bottom: 1px solid #21d397;
+    transition: all .5s ease;
+    outline: none;
+}
+.dashboard .createTodo input:focus{
+    transition: all .5s ease;
+    border-color: #7450fe;
+}
+.dashboard .list {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.dashboard .list fieldset {
+    position: relative;
+    min-height: 100px;
+    border-color: #7450fe;
+}
+.list  fieldset .deleteList{
+    position: absolute;
+    width: 25px;
+    top: -10px;
+    right: -8px;
+}
+.list fieldset legend {
+    margin: 20px;
+}
+.list fieldset legend h3{
+    font-size: 25px;
+    text-transform: capitalize;
+}
+
+.list fieldset input{
+    margin: 0px 0px 15px 15px;
+    padding: 15px 0px 7px 3px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #afacac;
+    cursor: text;
+}
+.list fieldset .input{
+    display: none;
+    justify-content: space-around;
+}
+.list fieldset .input img{
+    width: 25px;
+}
+
+.item {
+    margin: 15px;
+    padding: 15px;
+    background-color: #f7f7f7;
+}
+
+.item p {
+    color: #000;
+}
+#saveTodo {
     display: none;
 }
+
 .signUp {
     height: 500px;
     width: 80%;
@@ -147,6 +218,9 @@ nav .nav-links a:hover {
     outline: none;
 }
 
+/* #logOut{
+    display: none;
+} */
 .logIn {
     display: none;
     flex-direction: column;
@@ -202,4 +276,12 @@ nav .nav-links a:hover {
     to {
         transform: translateY(0);
     }
+}
+
+
+@media(max-width:768px){
+    .dashboard .list {
+        display: block;
+    }
+    
 }
